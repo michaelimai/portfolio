@@ -216,6 +216,14 @@ nav {
 
 /* PROJECTS */
 
+.project {
+  margin-bottom: 135px;
+}
+
+.project:last-child {
+  margin-bottom: 40px;
+}
+
 .project__img {
   width: 100%;
   transition: all 500ms ease;
@@ -238,17 +246,24 @@ nav {
   width: 100%;
   background-color: #1c1d25;
   opacity: 0;
-  transition: opacity 450ms ease;
+  transition: all 450ms ease;
   z-index: 2;
+  transform: translateY(100%);
 }
 
 .project:hover .project__wrapper:before {
+  transform: translateY(0);
   opacity: 0.7;
 }
 
 .project:hover .project__img {
   transform: scale(1.07);
   filter: blur(5px);
+}
+
+.project:hover .project__description {
+  opacity: 1;
+  transform: translateY(-50%);
 }
 
 .project__list {
@@ -259,9 +274,11 @@ nav {
   position: absolute;
   top: 50%;
   left: 90px;
-  transform: translateY(-50%);
+  transform: translateY(100%);
   max-width: 550px;
   z-index: 3;
+  opacity: 0;
+  transition: transform 450ms, opacity 300ms;
 }
 
 .project__description--title {
@@ -275,7 +292,6 @@ nav {
 .project__description--link {
   font-size: 20px;
   margin-right: 16px;
-  text-decoration: none;
 }
 
 .project__description--title,
